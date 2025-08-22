@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  predictor:
+    build: .
+    container_name: predictor_service
+    command: python3 predictor.py
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - app-network
+
+  streamlit:
+    build: .
+    container_name: streamlit_service
+    command: streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    depends_on:
+      - predictor
+    restart: always
+    networks:
+      - app-network
+    environment:
+      - PREDICTOR_URL=http://predictor:5000/predict
+
+networks:
+  app-network:
+    driver: bridge

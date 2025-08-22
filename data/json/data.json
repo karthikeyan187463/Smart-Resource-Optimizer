@@ -1,0 +1,18 @@
+{
+  "instance_sn": "instance_0",
+  "role": "CN",
+  "app_name": "app_0",
+  "cpu_limit": 300,
+  "gpu_request": 1.0,
+  "gpu_limit": 1,
+  "rdma_request": 25,
+  "rdma_limit": 25,
+  "memory_request": 120.0,
+  "memory_limit": 1200.0,
+  "disk_request": 6400.0,
+  "disk_limit": 8000.0,
+  "max_instance_per_node": 8,
+  "creation_time": 0,
+  "scheduled_time": 0,
+  "deletion_time": 0
+}
